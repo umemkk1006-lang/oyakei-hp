@@ -369,6 +369,103 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
   .brand-name{ font-size: 14px; }
   .navlink{ padding: 7px 8px; font-size: 13px; }
 }
+/* ===== Blog page additions (shared style, minimal) ===== */
+.hero--compact .hero-title { margin-bottom: 8px; }
+.hero--compact .hero-subtitle { max-width: 46rem; margin: 0 auto; }
+
+.cta-row{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+/* Buttons: if already exist, these will just complement */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.10);
+  text-decoration:none;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn-full{ width:100%; }
+
+.btn-primary{
+  background: #2f5b4f;
+  color:#fff;
+  border-color: rgba(0,0,0,.08);
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+.btn-ghost{
+  background:#fff;
+  color:#2c2c2c;
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+
+/* Blog series cards */
+.blog-series-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+@media (max-width: 860px){
+  .blog-series-grid{ grid-template-columns: 1fr; }
+}
+
+.blog-card{
+  background:#fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,.07);
+  display:flex;
+  flex-direction:column;
+}
+
+.blog-card__image{
+  aspect-ratio: 16 / 9;
+  background: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.blog-card__image img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+
+.blog-card__body{ padding: 16px 16px 18px; }
+.blog-card__title{ margin: 0 0 10px; font-size: 18px; }
+.blog-card__text{ margin: 0 0 14px; color: rgba(0,0,0,.62); }
+
+/* Mission split */
+.blog-mission{
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 18px;
+  align-items:center;
+  margin-top: 16px;
+}
+@media (max-width: 860px){
+  .blog-mission{ grid-template-columns: 1fr; }
+}
+
+.blog-mission__image img{
+  width:100%;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 12px 28px rgba(0,0,0,.06);
+  display:block;
+}
+.blog-sign{ color: rgba(0,0,0,.62); margin-top: 10px; }
 
 /* ---- Footer ---- */
 .site-footer{
