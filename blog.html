@@ -1,188 +1,393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="親子経済ラボのブログ - 思考と研究の蓄積、親子で学ぶ経済学シリーズ">
-    <title>ブログ | 親子経済ラボ</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- ヘッダー -->
-    <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo-link">
-                    <img src="images/logo.png" alt="親子経済ラボ" class="logo">
-                </a>
-                <button class="mobile-menu-toggle" aria-label="メニュー">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="consultation.html">シングルマザー相談</a></li>
-                        <li><a href="blog.html" class="active">ブログ</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ブログ｜親子経済ラボ</title>
 
-    <!-- ヒーローセクション -->
+  <!-- 既存CSSがある場合はそのまま活かせます。ファイル名が違うなら適宜変更してください -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    :root{
+      --bg: #fbf7f0;
+      --paper: #ffffff;
+      --ink: #2c2c2c;
+      --muted: #6b6b6b;
+      --line: rgba(0,0,0,.08);
+      --accent: #2f5b4f;
+      --accent2: #f2a7a0;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --max: 1080px;
+    }
+    body{
+      margin:0;
+      color:var(--ink);
+      background: radial-gradient(1200px 800px at 50% 0%, #fff 0%, var(--bg) 65%);
+      font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      line-height:1.75;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 60px; }
+
+    /* header */
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      position: sticky; top: 0;
+      background: rgba(251,247,240,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      z-index: 20;
+    }
+    .topbar-inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 18px;
+      width: 100%;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 700;
+      letter-spacing:.02em;
+    }
+    .brand-dot{
+      width: 12px; height: 12px; border-radius: 999px;
+      background: linear-gradient(180deg, #bfe7d4, #9fd7c3);
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    }
+    nav{
+      display:flex; align-items:center; gap: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .navlink{
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .navlink:hover{ background: rgba(0,0,0,.04); color: var(--ink); }
+    .navlink.is-active{
+      background: rgba(47,91,79,.10);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* hero */
+    .hero{
+      padding: 38px 0 26px;
+      text-align: center;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4.2vw, 42px);
+      letter-spacing: .02em;
+    }
+    .lead{
+      margin: 0 auto 18px;
+      max-width: 46rem;
+      color: var(--muted);
+      font-size: 16px;
+      text-indent: 1em;
+    }
+    .cta-row{
+      display:flex; gap:12px; justify-content:center; flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(0,0,0,.05);
+      font-weight: 700;
+      font-size: 14px;
+      min-width: 180px;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{
+      background: linear-gradient(180deg, #2f5b4f, #24463e);
+      color: #fff;
+      border-color: rgba(0,0,0,.08);
+    }
+    .note{
+      display:inline-flex; align-items:center; gap:8px;
+    }
+    .note-badge{
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(242,167,160,.22);
+      color: #7c3a33;
+      border: 1px solid rgba(242,167,160,.35);
+    }
+
+    /* section base */
+    .section{
+      margin-top: 26px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .section-head{
+      padding: 18px 18px 0;
+    }
+    h2{
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: .02em;
+    }
+    .section-sub{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      text-indent: 1em;
+    }
+
+    /* series grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 0 18px 18px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .card{
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow:hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,.05);
+      display:flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+    .card-media{
+      background: #f6f0e7;
+      border-bottom: 1px solid var(--line);
+      aspect-ratio: 16 / 9;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+    }
+    .card-media img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .card-body{ padding: 16px; }
+    .kicker{
+      display:flex; align-items:center; gap:10px;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+    }
+    .kicker .dot{
+      width:8px; height:8px; border-radius: 999px;
+      background: linear-gradient(180deg, #bfe7d4, #9fd7c3);
+    }
+    .card h3{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: .02em;
+    }
+    .card p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+      text-indent: 1em;
+    }
+    .tags{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin: 10px 0 14px;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(47,91,79,.08);
+      border: 1px solid rgba(47,91,79,.14);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .card .btn{
+      width: 100%;
+      margin-top: 6px;
+    }
+
+    /* mission */
+    .mission{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      padding: 18px;
+      align-items: center;
+    }
+    @media (max-width: 860px){
+      .mission{ grid-template-columns: 1fr; }
+    }
+    .mission img{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(0,0,0,.06);
+      background: #fff;
+    }
+    .mission h3{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing:.02em;
+    }
+    .mission p{
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+      text-indent: 1em;
+    }
+    .signature{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .signature b{ color: var(--ink); }
+
+    /* footer */
+    footer{
+      margin-top: 34px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>親子経済ラボ</span>
+      </a>
+      <nav aria-label="サイト内メニュー">
+        <a class="navlink" href="index.html">Home</a>
+        <a class="navlink" href="consultation.html">相談ページ</a>
+        <a class="navlink is-active" href="blog.html">ブログ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">ブログ</h1>
-                <p class="hero-subtitle">思考と研究の蓄積</p>
-            </div>
-        </div>
+      <h1>ブログ</h1>
+      <p class="lead">
+        親子で学ぶ経済学と、心のある経済学。研究と思索を軸に、日常の問いから考える力を育てるための記録です。
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="https://note.com/loyal_drake4735" target="_blank" rel="noopener">
+          <span class="note">noteで読む <span class="note-badge">note</span></span>
+        </a>
+        <a class="btn" href="https://ameblo.jp/kkkmiho/" target="_blank" rel="noopener">
+          アメブロで読む
+        </a>
+      </div>
     </section>
 
-    <!-- メインコンテンツ -->
-    <main>
-        <!-- ブログについて -->
-        <section class="section">
-            <div class="container">
-                <div class="blog-intro">
-                    <h2 class="section-title">ブログについて</h2>
-                    <p>
-                        親子経済ラボでは、思考と研究の記録を2つのブログで発信しています。
-                    </p>
-                    <p>
-                        「親子で学ぶ経済学シリーズ」を中心に、<br>
-                        日々の気づきや考えたこと、整理したことを綴っています。
-                    </p>
-                    <p>
-                        ゆっくりと、少しずつ。<br>
-                        思想の流れを感じていただければ嬉しいです。
-                    </p>
-                </div>
+    <section class="section" aria-labelledby="series">
+      <div class="section-head">
+        <h2 id="series">シリーズ</h2>
+        <p class="section-sub">
+          どちらから読んでも構いません。気になったテーマから入って、必要なときに戻って来られる場所を目指しています。
+        </p>
+      </div>
+
+      <div class="grid">
+        <!-- Series 1 -->
+        <article class="card">
+          <div class="card-media">
+            <img src="images/blog-oyakei.png" alt="親子で学ぶ経済学 思考を育てるシリーズ バナー画像" />
+          </div>
+          <div class="card-body">
+            <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Series</span></div>
+            <h3>親子で学ぶ経済学:思考を育てるシリーズ</h3>
+            <p>
+              経済を知ることは、お金の話を増やすことではなく、考える力を育てること。親子の対話を入口に、仕事、値段、寄付、将来など、身近な問いから社会の仕組みを見ていきます。
+            </p>
+            <div class="tags" aria-label="特徴">
+              <span class="tag">親子の対話</span>
+              <span class="tag">問いを育てる</span>
+              <span class="tag">批判的思考</span>
             </div>
-        </section>
+            <a class="btn primary" href="https://note.com/loyal_drake4735/m/mc1c2aa2083d3" target="_blank" rel="noopener">
+              noteのマガジンへ
+            </a>
+          </div>
+        </article>
 
-        <!-- ブログリンク -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">ブログへのリンク</h2>
-                <div class="blog-links">
-                    <!-- note -->
-                    <div class="blog-card">
-                        <div class="blog-icon">📝</div>
-                        <h3>note</h3>
-                        <p>
-                            親子で学ぶ経済学シリーズや、<br>
-                            思考の整理を中心に発信しています。
-                        </p>
-                        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
-                            研究的な視点と日常の視点を行き来しながら、<br class="sp-only">
-                            ゆっくり考えを深めていく場所です。
-                        </p>
-                        <a href="https://note.com/loyal_drake4735" target="_blank" rel="noopener noreferrer" class="btn">noteを見る</a>
-                    </div>
-
-                    <!-- アメブロ -->
-                    <div class="blog-card">
-                        <div class="blog-icon">✍️</div>
-                        <h3>アメブロ</h3>
-                        <p>
-                            日々の気づきや、<br>
-                            もう少し身近な視点での記録を綴っています。
-                        </p>
-                        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
-                            等身大の言葉で、<br class="sp-only">
-                            シングルマザーとしての日常や思考を共有する場所です。
-                        </p>
-                        <a href="https://ameblo.jp/kkkmiho/" target="_blank" rel="noopener noreferrer" class="btn">アメブロを見る</a>
-                    </div>
-                </div>
+        <!-- Series 2 -->
+        <article class="card">
+          <div class="card-media">
+            <img src="images/blog-kokoro.png" alt="心のある経済学 バナー画像" />
+          </div>
+          <div class="card-body">
+            <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Series</span></div>
+            <h3>心のある経済学</h3>
+            <p>
+              合理性だけでは説明できない、違和感や迷いを手がかりに。思想と日常をつなぎながら、人間と社会の関係を経済学の視点で考え直していくシリーズです。
+            </p>
+            <div class="tags" aria-label="特徴">
+              <span class="tag">内側の自由</span>
+              <span class="tag">判断の整理</span>
+              <span class="tag">思想と実践</span>
             </div>
-        </section>
+            <a class="btn primary" href="https://note.com/loyal_drake4735/m/mb815137cb7ed" target="_blank" rel="noopener">
+              noteのマガジンへ
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <!-- 親子で学ぶ経済学シリーズについて -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">「親子で学ぶ経済学」シリーズについて</h2>
-                <div class="content-box">
-                    <p class="lead">
-                        このシリーズは、親子で経済や社会のしくみを考えるための連載です。
-                    </p>
-                    <p>
-                        難しい専門用語ではなく、日常の言葉で。<br>
-                        正解を教えるのではなく、一緒に考えるための視点を提供しています。
-                    </p>
-                    <p>
-                        経済学というと堅苦しく感じるかもしれませんが、<br>
-                        実は私たちの日々の選択や判断と深く結びついています。
-                    </p>
-                    <p>
-                        進路のこと、お金のこと、働き方のこと——。<br>
-                        そんな身近なテーマを通じて、考える力を育てていく。<br>
-                        それが、このシリーズの願いです。
-                    </p>
-                    <p style="margin-top: 2rem; text-align: center;">
-                        <a href="https://note.com/loyal_drake4735" target="_blank" rel="noopener noreferrer" class="btn">noteで読む</a>
-                    </p>
-                </div>
-            </div>
-        </section>
+    <section class="section" aria-labelledby="about">
+      <div class="section-head">
+        <h2 id="about">親子経済ラボが目指すこと</h2>
+        <p class="section-sub">
+          研究と思索を中心に据え、日常の中で考える力と、心の余白を取り戻すための場所を作っています。
+        </p>
+      </div>
 
-        <!-- ブログの思想 -->
-        <section class="section philosophy">
-            <div class="container">
-                <h2 class="section-title">ブログで大切にしていること</h2>
-                <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <h3>積み重ねの記録</h3>
-                        <p>一つひとつの記事は小さな思考の断片です。それを積み重ねることで、全体の思想が見えてきます。</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <h3>答えではなく視点</h3>
-                        <p>正解を提示するのではなく、考えるための視点や問いを共有しています。</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <h3>ゆっくりと深く</h3>
-                        <p>急がず、焦らず。一つのテーマをじっくりと掘り下げていくことを大切にしています。</p>
-                    </div>
-                    <div class="philosophy-item">
-                        <h3>等身大の言葉</h3>
-                        <p>専門家ぶらず、飾らず。等身大の言葉で、考えたことを素直に綴っています。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 更新について -->
-        <section class="section">
-            <div class="container">
-                <div class="content-box" style="text-align: center;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">更新について</h3>
-                    <p>
-                        ブログの更新は不定期です。<br>
-                        思考が整理できたとき、伝えたいことが言葉になったとき。<br>
-                        そんなタイミングで、少しずつ更新していきます。
-                    </p>
-                    <p style="margin-top: 1.5rem; color: var(--color-text-secondary); font-size: 0.9rem;">
-                        読んでくださる方が、<br class="sp-only">
-                        自分のペースで考える時間を持てますように。
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- フッター -->
-    <footer class="site-footer">
-        <div class="container">
-            <p class="footer-text">&copy; 2024 親子経済ラボ. All rights reserved.</p>
+      <div class="mission">
+        <div>
+          <h3>対話を通じて、考える力を育てる</h3>
+          <p>
+            正解を急がず、状況と気持ちを整理しながら、自分の言葉で考え直せる時間を大切にしています。
+          </p>
+          <p>
+            子どもが社会とつながり、未来を自分で描けるように。親にとっても、学び直しと対話の足場になることを目指しています。
+          </p>
+          <div class="signature">
+            運営：<b>身守（Miho, U）</b>
+          </div>
         </div>
-    </footer>
+        <div>
+          <img src="images/mission-vision.png" alt="親子経済ラボのMissionとVision" />
+        </div>
+      </div>
+    </section>
 
-    <script src="js/main.js"></script>
+    <footer>
+      <div>© 親子経済ラボ</div>
+    </footer>
+  </main>
 </body>
 </html>
