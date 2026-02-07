@@ -1,421 +1,135 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ブログ｜親子経済ラボ</title>
-
-  <!-- 既存CSSがある場合はそのまま活かせます。ファイル名が違うなら適宜変更してください -->
-  <link rel="stylesheet" href="css/style.css" />
-
-  <style>
-    :root{
-      --bg: #fbf7f0;
-      --paper: #ffffff;
-      --ink: #2c2c2c;
-      --muted: #6b6b6b;
-      --line: rgba(0,0,0,.08);
-      --accent: #2f5b4f;
-      --accent2: #f2a7a0;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --max: 1080px;
-    }
-    body{
-      margin:0;
-      color:var(--ink);
-      background: radial-gradient(1200px 800px at 50% 0%, #fff 0%, var(--bg) 65%);
-      font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-      line-height:1.75;
-    }
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 28px 18px 60px; }
-
-    /* header */
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
-      position: sticky; top: 0;
-      background: rgba(251,247,240,.72);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-      z-index: 20;
-    }
-    .topbar-inner{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 18px;
-      width: 100%;
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight: 700;
-      letter-spacing:.02em;
-    }
-    .brand-dot{
-      width: 12px; height: 12px; border-radius: 999px;
-      background: linear-gradient(180deg, #bfe7d4, #9fd7c3);
-      box-shadow: 0 6px 18px rgba(0,0,0,.12);
-    }
-    nav{
-      display:flex; align-items:center; gap: 6px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .navlink{
-      padding: 8px 10px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .navlink:hover{ background: rgba(0,0,0,.04); color: var(--ink); }
-    .navlink.is-active{
-      background: rgba(47,91,79,.10);
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    /* hero */
-    .hero{
-      padding: 38px 0 26px;
-      text-align: center;
-    }
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4.2vw, 42px);
-      letter-spacing: .02em;
-    }
-    .lead{
-      margin: 0 auto 18px;
-      max-width: 46rem;
-      color: var(--muted);
-      font-size: 16px;
-      text-indent: 1em;
-    }
-    .cta-row{
-      display:flex; gap:12px; justify-content:center; flex-wrap: wrap;
-      margin-top: 14px;
-    }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #fff;
-      box-shadow: 0 8px 20px rgba(0,0,0,.05);
-      font-weight: 700;
-      font-size: 14px;
-      min-width: 180px;
-    }
-    .btn:hover{ transform: translateY(-1px); }
-    .btn.primary{
-      background: linear-gradient(180deg, #2f5b4f, #24463e);
-      color: #fff;
-      border-color: rgba(0,0,0,.08);
-    }
-    .note{
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .note-badge{
-      font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(242,167,160,.22);
-      color: #7c3a33;
-      border: 1px solid rgba(242,167,160,.35);
-    }
-    /* brand logo */
-    .brand-logo{
-      width: 36px;
-      height: 36px;
-      object-fit: contain;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 8px 18px rgba(0,0,0,.08);
-      background: #fff;
-    }
-    .brand-name{
-     font-weight: 700;
-     letter-spacing: .02em;
-    }
-    @media (max-width: 520px){
-    .brand-name{ font-size: 14px; }
-    .brand-logo{ width: 32px; height: 32px; }
-    }
-    /* section base */
-    .section{
-      margin-top: 26px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .section-head{
-      padding: 18px 18px 0;
-    }
-    h2{
-      margin: 0 0 8px;
-      font-size: 22px;
-      letter-spacing: .02em;
-    }
-    .section-sub{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 14px;
-      text-indent: 1em;
-    }
-
-    /* series grid */
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      padding: 0 18px 18px;
-    }
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-    .card{
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow:hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,.05);
-      display:flex;
-      flex-direction: column;
-      min-height: 100%;
-    }
-    .card-media{
-      background: #f6f0e7;
-      border-bottom: 1px solid var(--line);
-      aspect-ratio: 16 / 9;
-      display:flex; align-items:center; justify-content:center;
-      overflow:hidden;
-    }
-    .card-media img{
-      width:100%; height:100%;
-      object-fit: cover;
-      display:block;
-    }
-    .card-body{ padding: 16px; }
-    .kicker{
-      display:flex; align-items:center; gap:10px;
-      margin-bottom: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing:.06em;
-      text-transform: uppercase;
-    }
-    .kicker .dot{
-      width:8px; height:8px; border-radius: 999px;
-      background: linear-gradient(180deg, #bfe7d4, #9fd7c3);
-    }
-    .card h3{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing: .02em;
-    }
-    .card p{
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 14px;
-      text-indent: 1em;
-    }
-    .tags{
-      display:flex; flex-wrap:wrap; gap:8px;
-      margin: 10px 0 14px;
-    }
-    .tag{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(47,91,79,.08);
-      border: 1px solid rgba(47,91,79,.14);
-      color: var(--accent);
-      white-space: nowrap;
-    }
-    .card .btn{
-      width: 100%;
-      margin-top: 6px;
-    }
-
-    /* mission */
-    .mission{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 16px;
-      padding: 18px;
-      align-items: center;
-    }
-    @media (max-width: 860px){
-      .mission{ grid-template-columns: 1fr; }
-    }
-    .mission img{
-      width:100%;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 30px rgba(0,0,0,.06);
-      background: #fff;
-    }
-    .mission h3{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing:.02em;
-    }
-    .mission p{
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 14px;
-      text-indent: 1em;
-    }
-    .signature{
-      margin-top: 10px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .signature b{ color: var(--ink); }
-
-    /* footer */
-    footer{
-      margin-top: 34px;
-      text-align:center;
-      color: var(--muted);
-      font-size: 12px;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- ヘッダー（index.htmlと同じ） -->
   <header class="site-header">
-  <div class="container">
-    <div class="header-content">
-      <a href="index.html" class="logo-link">
-        <img src="images/logo.png" alt="親子経済ラボ" class="logo">
-      </a>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo-link">
+          <img src="images/logo.png" alt="親子経済ラボ" class="logo">
+        </a>
 
-      <button class="mobile-menu-toggle" aria-label="メニュー">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button class="mobile-menu-toggle" aria-label="メニュー">
+          <span></span><span></span><span></span>
+        </button>
 
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="consultation.html">相談ページ</a></li>
-          <li><a href="blog.html" class="active">ブログ</a></li>
-        </ul>
-      </nav>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="consultation.html">シングルマザー相談</a></li>
+            <li><a href="blog.html" class="active">ブログ</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-
-  <main class="wrap">
-    <section class="hero">
-      <h1>ブログ</h1>
-      <p class="lead">
-        親子で学ぶ経済学と、心のある経済学。研究と思索を軸に、日常の問いから考える力を育てるための記録です。
-      </p>
-
-      <div class="cta-row">
-        <a class="btn primary" href="https://note.com/loyal_drake4735" target="_blank" rel="noopener">
-          <span class="note">noteで読む <span class="note-badge">note</span></span>
-        </a>
-        <a class="btn" href="https://ameblo.jp/kkkmiho/" target="_blank" rel="noopener">
-          アメブロで読む
-        </a>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="series">
-      <div class="section-head">
-        <h2 id="series">シリーズ</h2>
-        <p class="section-sub">
-          どちらから読んでも構いません。気になったテーマから入って、必要なときに戻って来られる場所を目指しています。
+  <!-- ヒーロー（index.htmlの見た目に揃える） -->
+  <section class="hero hero--compact">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">ブログ</h1>
+        <p class="hero-subtitle">
+          親子で学ぶ経済学と、心のある経済学。研究と思索を軸に、日常の問いから考える力を育てるための記録です。
         </p>
-      </div>
 
-      <div class="grid">
-        <!-- Series 1 -->
-        <article class="card">
-          <div class="card-media">
-            <img src="images/blog-oyakei.png" alt="親子で学ぶ経済学 思考を育てるシリーズ バナー画像" />
-          </div>
-          <div class="card-body">
-            <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Series</span></div>
-            <h3>親子で学ぶ経済学:思考を育てるシリーズ</h3>
-            <p>
-              経済を知ることは、お金の話を増やすことではなく、考える力を育てること。親子の対話を入口に、仕事、値段、寄付、将来など、身近な問いから社会の仕組みを見ていきます。
-            </p>
-            <div class="tags" aria-label="特徴">
-              <span class="tag">親子の対話</span>
-              <span class="tag">問いを育てる</span>
-              <span class="tag">批判的思考</span>
-            </div>
-            <a class="btn primary" href="https://note.com/loyal_drake4735/m/mc1c2aa2083d3" target="_blank" rel="noopener">
-              noteのマガジンへ
-            </a>
-          </div>
-        </article>
-
-        <!-- Series 2 -->
-        <article class="card">
-          <div class="card-media">
-            <img src="images/blog-kokoro.png" alt="心のある経済学 バナー画像" />
-          </div>
-          <div class="card-body">
-            <div class="kicker"><span class="dot" aria-hidden="true"></span><span>Series</span></div>
-            <h3>心のある経済学</h3>
-            <p>
-              合理性だけでは説明できない、違和感や迷いを手がかりに。思想と日常をつなぎながら、人間と社会の関係を経済学の視点で考え直していくシリーズです。
-            </p>
-            <div class="tags" aria-label="特徴">
-              <span class="tag">内側の自由</span>
-              <span class="tag">判断の整理</span>
-              <span class="tag">思想と実践</span>
-            </div>
-            <a class="btn primary" href="https://note.com/loyal_drake4735/m/mb815137cb7ed" target="_blank" rel="noopener">
-              noteのマガジンへ
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="about">
-      <div class="section-head">
-        <h2 id="about">親子経済ラボが目指すこと</h2>
-        <p class="section-sub">
-          研究と思索を中心に据え、日常の中で考える力と、心の余白を取り戻すための場所を作っています。
-        </p>
-      </div>
-
-      <div class="mission">
-        <div>
-          <h3>対話を通じて、考える力を育てる</h3>
-          <p>
-            正解を急がず、状況と気持ちを整理しながら、自分の言葉で考え直せる時間を大切にしています。
-          </p>
-          <p>
-            子どもが社会とつながり、未来を自分で描けるように。親にとっても、学び直しと対話の足場になることを目指しています。
-          </p>
-          <div class="signature">
-            運営：<b>身守（Miho, U）</b>
-          </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://note.com/loyal_drake4735" target="_blank" rel="noopener">noteで読む</a>
+          <a class="btn btn-ghost" href="https://ameblo.jp/kkkmiho/" target="_blank" rel="noopener">アメブロで読む</a>
         </div>
-        <div>
-          <img src="images/mission-vision.png" alt="親子経済ラボのMissionとVision" />
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- シリーズ -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">シリーズ</h2>
+        <div class="content-box">
+          <p class="lead">
+            どちらから読んでも構いません。気になったテーマから入って、必要なときに戻って来られる場所を目指しています。
+          </p>
+        </div>
+
+        <div class="blog-series-grid">
+          <!-- 1 -->
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="images/blog-oyakei.png" alt="親子で学ぶ経済学:思考を育てるシリーズ">
+            </div>
+            <div class="blog-card__body">
+              <h3 class="blog-card__title">親子で学ぶ経済学:思考を育てるシリーズ</h3>
+              <p class="blog-card__text">
+                経済を知ることは、お金の話を増やすことではなく、考える力を育てること。親子の対話を入口に、身近な問いから社会の仕組みを見ていきます。
+              </p>
+              <a class="btn btn-primary btn-full" href="https://note.com/loyal_drake4735/m/mc1c2aa2083d3" target="_blank" rel="noopener">noteのマガジンへ</a>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="blog-card">
+            <div class="blog-card__image">
+              <img src="images/blog-kokoro.png" alt="心のある経済学">
+            </div>
+            <div class="blog-card__body">
+              <h3 class="blog-card__title">心のある経済学</h3>
+              <p class="blog-card__text">
+                合理性だけでは説明できない、違和感や迷いを手がかりに。思想と日常をつなぎ、人間と社会の関係を経済学の視点で考え直していくシリーズです。
+              </p>
+              <a class="btn btn-primary btn-full" href="https://note.com/loyal_drake4735/m/mb815137cb7ed" target="_blank" rel="noopener">noteのマガジンへ</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <footer>
-      <div>© 親子経済ラボ</div>
-    </footer>
+    <!-- 目指すこと -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">親子経済ラボが目指すこと</h2>
+        <div class="content-box">
+          <p class="lead">
+            研究と思索を中心に据え、日常の中で考える力と、心の余白を取り戻すための場所を作っています。
+          </p>
+        </div>
+
+        <div class="blog-mission">
+          <div class="blog-mission__text">
+            <h3>対話を通じて、考える力を育てる</h3>
+            <p>
+              正解を急がず、状況と気持ちを整理しながら、自分の言葉で考え直せる時間を大切にしています。
+            </p>
+            <p>
+              子どもが社会とつながり、未来を自分で描けるように。親にとっても、学び直しと対話の足場になることを目指しています。
+            </p>
+            <p class="blog-sign">運営：<b>身守（Miho, U）</b></p>
+          </div>
+
+          <div class="blog-mission__image">
+            <img src="images/mission-vision.png" alt="親子経済ラボのMissionとVision">
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">&copy; 2024 親子経済ラボ. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
