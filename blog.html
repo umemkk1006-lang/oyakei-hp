@@ -126,7 +126,24 @@
       color: #7c3a33;
       border: 1px solid rgba(242,167,160,.35);
     }
-
+    /* brand logo */
+    .brand-logo{
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.08);
+      background: #fff;
+    }
+    .brand-name{
+     font-weight: 700;
+     letter-spacing: .02em;
+    }
+    @media (max-width: 520px){
+    .brand-name{ font-size: 14px; }
+    .brand-logo{ width: 32px; height: 32px; }
+    }
     /* section base */
     .section{
       margin-top: 26px;
@@ -274,10 +291,11 @@
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span>親子経済ラボ</span>
-      </a>
+      <a class="brand" href="index.html" aria-label="親子経済ラボ ホームへ">
+ 　　　 <img class="brand-logo" src="images/logo.png" alt="親子経済ラボ">
+　　　  <span class="brand-name">親子経済ラボ</span>
+　　　</a>
+
       <nav aria-label="サイト内メニュー">
         <a class="navlink" href="index.html">Home</a>
         <a class="navlink" href="consultation.html">相談ページ</a>
