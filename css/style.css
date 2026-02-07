@@ -288,6 +288,87 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
   margin: 0;
   color: rgba(31,42,46,.80);
 }
+/* ===== Topbar header (blog.html style) ===== */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(251,247,240,.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.topbar-inner{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* brand */
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-logo{
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+
+.brand-name{
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* nav */
+.topnav{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.navlink{
+  padding: 8px 10px;
+  border-radius: 999px;
+  color: rgba(0,0,0,.55);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.navlink:hover{
+  background: rgba(0,0,0,.04);
+  color: rgba(0,0,0,.78);
+}
+
+.navlink.is-active{
+  background: rgba(47,91,79,.10);
+  color: #2f5b4f;
+  font-weight: 700;
+}
+
+/* mobile: keep header in one line */
+@media (max-width: 520px){
+  .topbar-inner{ padding: 10px 12px; }
+  .brand-logo{ width: 32px; height: 32px; }
+  .brand-name{ font-size: 14px; }
+  .navlink{ padding: 7px 8px; font-size: 13px; }
+}
 
 /* ---- Footer ---- */
 .site-footer{
