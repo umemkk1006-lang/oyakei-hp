@@ -521,4 +521,37 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
 .activity-card:nth-child(3){
   border: 1.5px solid rgba(47,111,104,.35);
 }
+/* ===== FIX: Mobile header layout for your current header HTML ===== */
+@media (max-width: 560px){
+  .topbar-inner{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .brand{
+    justify-content: flex-start;
+  }
+
+  /* 4つのリンクを「2列×2行」に固定して崩れないようにする */
+  .topnav{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    flex-wrap: initial !important;
+    justify-content: initial !important;
+  }
+
+  .navlink{
+    display: flex;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 560px){
+  .hero:after{ display:none !important; }
+}
+
 
