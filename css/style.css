@@ -483,11 +483,6 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
 }
 
 /* ---- Responsive ---- */
-@media (min-width: 901px){
-  .hero-content{ padding: 48px 18px; }
-  .activities-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-}
-
 @media (max-width: 680px){
   .mobile-menu-toggle{ display:inline-flex; }
   /* ここは main.js の実装次第で開閉に合わせて調整する前提。
@@ -496,34 +491,6 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
     gap: 8px;
   }
   .sp-only{ display:inline; }
-}
-/* ===== Modern refresh (Oyakei Lab) ===== */
-:root{
-  --bg:#fbfaf7;
-  --paper:#ffffff;
-  --ink:#222;
-  --muted:#666;
-  --line:rgba(0,0,0,.08);
-  --accent:#6b8f71; /* セージグリーン */
-  --radius:16px;
-  --shadow: 0 10px 30px rgba(0,0,0,.06);
-}
-
-body{
-  background: var(--bg);
-  color: var(--ink);
-  line-height: 1.75;
-  letter-spacing: .01em;
-}
-
-a{ color: var(--ink); }
-a:hover{ opacity:.85; }
-
-/* Container（余白増やす） */
-.container{
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 24px 18px 80px;
 }
 
 /* Header（今風のトップバー） */
@@ -688,5 +655,26 @@ a:hover{ opacity:.85; }
 }
 .activity-card .card-link{
   margin-top: auto;
+}
+/* ==== FIX: Activities grid columns ==== */
+.activities-grid{
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 980px){
+  .activities-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 640px) and (max-width: 979px){
+  .activities-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 639px){
+  .activities-grid{
+    grid-template-columns: 1fr;
+  }
 }
 
