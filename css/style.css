@@ -650,3 +650,41 @@ a:hover{ opacity:.85; }
   .topbar-inner{ flex-direction: column; align-items: flex-start; }
   .topnav{ justify-content: flex-start; }
 }
+
+/* 活動カード：PCは3列、タブレットは2列、スマホは1列 */
+.activities-grid{
+  display: grid;
+  gap: 18px;
+}
+
+/* PC：3列 */
+@media (min-width: 980px){
+  .activities-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+  }
+}
+
+/* タブレット：2列 */
+@media (min-width: 640px) and (max-width: 979px){
+  .activities-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* スマホ：1列 */
+@media (max-width: 639px){
+  .activities-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ボタン位置を下に揃えてカードの見た目を整える（任意だけどおすすめ） */
+.activity-card{
+  display: flex;
+  flex-direction: column;
+}
+.activity-card .card-link{
+  margin-top: auto;
+}
+
