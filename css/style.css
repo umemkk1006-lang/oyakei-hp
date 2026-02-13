@@ -233,6 +233,8 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   padding: 20px;
+  display:flex;
+  flex-direction:column;
 }
 .card-icon{
   width: 44px;
@@ -263,6 +265,7 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
   border: 1px solid rgba(47,111,104,.22);
   color: var(--accent-2);
   font-weight: 600;
+  margin-top:auto;
 }
 .card-link:hover{
   background: rgba(47,111,104,.16);
