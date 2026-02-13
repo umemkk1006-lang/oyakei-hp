@@ -485,7 +485,6 @@ a:focus{ outline: 3px solid rgba(47,111,104,.25); outline-offset:2px; }
 /* ---- Responsive ---- */
 @media (min-width: 901px){
   .hero-content{ padding: 48px 18px; }
-  .philosophy-grid{ grid-template-columns: 1fr; }
   .activities-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
