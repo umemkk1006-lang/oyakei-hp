@@ -1,82 +1,230 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>判断研究室｜親子経済ラボ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <meta name="description" content="AIと行動経済学で、投資判断を記録・分析する実験の記録。" />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>判断ラボ | 親子経済ラボ</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    background:#f5f3ee;
+    color:#2e2e2e;
+    line-height:1.9;
+    letter-spacing:0.04em;
+}
+
+.wrapper{
+    max-width:860px;
+    margin:0 auto;
+    padding:120px 24px;
+}
+
+.hero{
+    margin-bottom:120px;
+}
+
+.hero h1{
+    font-size:32px;
+    font-weight:500;
+    margin-bottom:40px;
+}
+
+.hero p{
+    max-width:680px;
+    margin-bottom:24px;
+}
+
+.divider{
+    height:1px;
+    background:#e4e1d9;
+    margin:100px 0;
+}
+
+.app-card{
+    background:white;
+    padding:60px 50px;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.04);
+    text-align:center;
+}
+
+.app-card h2{
+    font-size:22px;
+    font-weight:500;
+    margin-bottom:30px;
+}
+
+.app-card p{
+    max-width:600px;
+    margin:0 auto 18px auto;
+}
+
+.app-button{
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 36px;
+    background:#6f8f88;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.app-button:hover{
+    background:#5c7a74;
+}
+
+.section h2{
+    font-size:22px;
+    font-weight:500;
+    margin-bottom:30px;
+}
+
+.section p{
+    max-width:680px;
+    margin-bottom:22px;
+}
+
+.log-box{
+    background:white;
+    padding:50px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.04);
+}
+
+.log-box ul{
+    list-style:none;
+    padding:0;
+}
+
+.log-box li{
+    margin-bottom:14px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:120px;
+    font-style:italic;
+    color:#666;
+    font-size:15px;
+}
+
+.small-note{
+    text-align:center;
+    margin-top:40px;
+    font-size:13px;
+    color:#888;
+}
+
+</style>
 </head>
 
 <body>
-  <!-- Topbar（blog.html系のヘッダーに寄せる） -->
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <img class="brand-logo" src="images/logo.png" alt="親子経済ラボ" />
-        <div class="brand-name">親子経済ラボ</div>
-      </div>
 
-      <nav class="topnav" aria-label="サイトメニュー">
-        <a class="navlink" href="index.html">ホーム</a>
-        <a class="navlink" href="consultation.html">シングルマザー相談</a>
-        <a class="navlink" href="blog.html">ブログ</a>
-        <a class="navlink is-active" href="lab.html">判断研究室</a>
-      </nav>
-    </div>
-  </header>
+<div class="wrapper">
 
-  <main class="container">
-    <section class="hero hero--compact">
-      <div class="hero-content">
-        <h1 class="hero-title">親子経済ラボ｜判断研究室</h1>
-        <p class="hero-subtitle">
-          投資は銘柄よりも「判断」が難しい。<br/>
-          AIと行動経済学を使って、迷いも失敗も含めて記録していく実験です。
-        </p>
-      </div>
-    </section>
+<div class="hero">
+<h1>判断の前に、いったん立ち止まる。</h1>
 
-    <section class="section">
-      <h2 class="section-title">この研究室でやっていること</h2>
-      <div class="content-box">
-        <p class="lead">
-          「なぜあの時強気になりすぎた？」「なぜ損切りできなかった？」を、感情と状況から振り返ります。
-        </p>
-        <p>・判断ログ（事実／感情／理由）を残す</p>
-        <p>・AIでバイアス傾向を言語化する</p>
-        <p>・月単位で「自分の癖」を見つける</p>
-      </div>
-    </section>
+<p>
+投資は数字の世界に見えて、実はとても人間的な営みです。
+</p>
 
-    <section class="section">
-      <h2 class="section-title">判断ログのフォーマット</h2>
-      <div class="content-box">
-        <p><strong>1) 事実</strong>：銘柄／行動（買い・売り・見送り）／根拠</p>
-        <p><strong>2) 感情</strong>：焦り／期待／不安／自信 など</p>
-        <p><strong>3) AI分析</strong>：FOMO、損失回避、確証バイアス…</p>
-        <p><strong>4) 学び</strong>：次回の自分への一言</p>
-      </div>
-    </section>
+<p>
+焦り。期待。不安。高揚感。
+そうした感情は、静かに私たちの判断を揺らします。
+</p>
 
-    <section class="section">
-      <h2 class="section-title">研究記録（X）</h2>
-      <div class="content-box">
-        <p>日々の判断ログはXで記録しています。</p>
-        <p>
-          <a class="card-link" href="https://x.com/mihowithnike" target="_blank" rel="noopener">
-            Xの投稿を見る →
-          </a>
-        </p>
-      </div>
-    </section>
+<p>
+このページは、衝動ではなく「選択」をするための場所。
+親子経済ラボでは、経済を心を育てる学びとして考えています。
+その延長線上に、この投資判断ツールがあります。
+</p>
+</div>
 
-    <footer class="site-footer">
-      <p class="footer-text">© 2024 親子経済ラボ. All rights reserved.</p>
-    </footer>
-  </main>
+<div class="divider"></div>
+
+<div class="app-card">
+<h2>投資判断チェックツール</h2>
+
+<p>
+売買ボタンを押す前に、自分の思考を整理する。
+</p>
+
+<p>
+市場の強弱を確認し、<br>
+自分のルールと照らし合わせ、<br>
+感情の状態を見つめる。
+</p>
+
+<p>
+正解を出すためではなく、
+自分の判断に責任を持つためのツールです。
+</p>
+
+<a href="https://stocks-alert-yu7pvgntizkmy4murbii5k.streamlit.app/"
+target="_blank"
+class="app-button">
+ツールを使ってみる
+</a>
+
+<div class="small-note">
+※別タブで開きます
+</div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section">
+<h2>なぜ「判断ログ」を残すのか</h2>
+
+<p>
+結果だけを振り返っても、判断の質は育ちません。
+</p>
+
+<p>
+大切なのは、
+そのとき何を考えていたか、
+どんな感情だったか、
+ルールを守れていたかを記録すること。
+</p>
+
+<p>
+経済を学ぶことは、未来の自分を育てること。
+判断ログは、そのための小さな習慣です。
+</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="log-box">
+<h2>判断ログのフォーマット</h2>
+
+<ul>
+<li>1. 銘柄</li>
+<li>2. 判断日</li>
+<li>3. 市場状況</li>
+<li>4. 自分のルールとの一致度</li>
+<li>5. 感情の状態</li>
+<li>6. 実行／見送り</li>
+<li>7. 後日の振り返り</li>
+</ul>
+
+<p>
+完璧でなくて構いません。<br>
+大切なのは、残すことです。
+</p>
+</div>
+
+<div class="footer">
+衝動ではなく、選択を。
+</div>
+
+</div>
+
 </body>
 </html>
